@@ -1,0 +1,373 @@
+@import "tailwindcss";
+
+@theme {
+  --color-background: #0b0f14;
+  --color-foreground: #f8fafc;
+
+  --color-card: #11161c;
+
+  --color-primary: #c084fc;
+  --color-primary-foreground: #ffffff;
+
+  --color-secondary: #1a2128;
+  --color-secondary-foreground: #c084fc;
+
+  --color-muted: #1e2630;
+  --color-muted-foreground: #9aa4b2;
+
+  --color-border: #2a3440;
+
+  --radius: 0.75rem;
+
+  --color-highlight: #f5a623;
+  --color-surface: #1a2329;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  button {
+    cursor: pointer;
+  }
+
+  body {
+    background-color: var(--color-background);
+    color: var(--color-foreground);
+    font-family: "Inter", sans-serif;
+  }
+
+
+ /* create class .font-serif */
+  .font-serif {
+    font-family: "Playfair Display", serif;
+  }
+
+  .font-tech {
+  font-family: "Space Grotesk", sans-serif;
+}
+}
+
+@layer components {
+  .glass {
+    background-color: color-mix(in srgb, var(--color-surface) 50%, transparent);
+    backdrop-filter: blur(16px);
+    border: 1px solid color-mix(in srgb, var(--color-border) 50%, transparent);
+    transform-style: preserve-3d;
+    will-change: transform;
+    transition: transform 0.15s ease;
+  }
+
+  .glass-strong {
+    background-color: color-mix(in srgb, var(--color-surface) 80%, transparent);
+    backdrop-filter: blur(24px);
+    border: 1px solid color-mix(in srgb, var(--color-border) 60%, transparent);
+  }
+
+  .glow-text {
+    text-shadow: 0 0 30px
+      color-mix(in srgb, var(--color-primary) 80%, transparent);
+  }
+  
+
+  .glow-border {
+    box-shadow: 0 0 20px
+        color-mix(in srgb, var(--color-primary) 20%, transparent),
+      inset 0 0 20px color-mix(in srgb, var(--color-primary) 5%, transparent);
+  }
+}
+
+@layer utilities {
+  @keyframes fade-in {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+      filter: blur(10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+      filter: blur(0);
+    }
+  }
+
+  @keyframes slideDown {
+    from {
+      opacity: 0;
+      transform: translateY(-10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .animate-slide-down {
+    animation: slideDown 0.45s ease-out;
+  }
+
+  @keyframes slow-drift {
+    0%,
+    100% {
+      transform: translate(0, 0);
+    }
+    25% {
+      transform: translate(20px, -30px);
+    }
+    50% {
+      transform: translate(-15px, -20px);
+    }
+    75% {
+      transform: translate(30px, 10px);
+    }
+  }
+
+  @keyframes float {
+    0%,
+    100% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-10px);
+    }
+  }
+
+  @keyframes marquee {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(-50%);
+    }
+  }
+
+  .animate-fade-in {
+    animation: fade-in 0.8s ease-out both;
+  }
+
+  .animate-float {
+    animation: float 4s ease-in-out infinite;
+  }
+
+  .animate-marquee {
+    animation: marquee 30s linear infinite;
+  }
+
+  .animation-delay-100 {
+    animation-delay: 100ms;
+  }
+
+  .animation-delay-200 {
+    animation-delay: 200ms;
+  }
+
+  .animation-delay-300 {
+    animation-delay: 300ms;
+  }
+
+  .animation-delay-400 {
+    animation-delay: 400ms;
+  }
+
+  .animation-delay-500 {
+    animation-delay: 500ms;
+  }
+
+  .animation-delay-600 {
+    animation-delay: 600ms;
+  }
+
+  .animation-delay-800 {
+    animation-delay: 800ms;
+  }
+
+  @keyframes animated-border {
+    0% {
+      stroke-dashoffset: 400;
+    }
+    100% {
+      stroke-dashoffset: -550;
+    }
+  }
+
+  .group:hover .animated-border-path {
+    animation: animated-border 1.5s linear infinite;
+  }
+
+  .animated-border:hover {
+    background-color: color-mix(in srgb, #c026ff 15%, transparent);
+    backdrop-filter: blur(16px);
+    box-shadow: 0 0 20px color-mix(in srgb, #c026ff 20%, transparent);
+  }
+
+  .timeline-glow {
+    box-shadow: 0 0 40px
+        color-mix(in srgb, var(--color-primary) 35%, transparent),
+      0 0 80px color-mix(in srgb, var(--color-primary) 25%, transparent);
+  }
+
+    @keyframes neonPulse {
+    0% {
+      box-shadow: 0 0 0px transparent;
+    }
+
+    50% {
+      box-shadow:
+        0 0 6px #c084fc,
+        0 0 16px rgba(192,132,252,0.6),
+        0 0 26px rgba(192,132,252,0.4);
+    }
+
+    100% {
+      box-shadow: 0 0 0px transparent;
+    }
+  }
+
+  .neon-active {
+    animation: neonPulse 1.6s ease-in-out infinite;
+  }
+
+  .card-spotlight {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    border-radius: 1rem;
+
+    background: radial-gradient(
+      260px circle at var(--x) var(--y),
+      rgba(168,85,247,0.35),
+      rgba(236,72,153,0.25),
+      transparent 70%
+    );
+
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+
+  @keyframes glassShine {
+    0% {
+      transform: translateX(-120%);
+    }
+
+    50% {
+      transform: translateX(120%);
+    }
+
+    100% {
+      transform: translateX(120%);
+    }
+  }
+
+  .card-glass::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+
+    background: linear-gradient(
+      120deg,
+      transparent 35%,
+      rgba(255,255,255,0.18),
+      rgba(255,255,255,0.05),
+      transparent 65%
+    );
+
+    transform: translateX(-120%);
+    animation: glassShine 6s ease-in-out infinite;
+  }
+
+  .card-glass {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    border-radius: inherit;
+
+    opacity: 1;
+    transition: opacity 1s ease;
+
+    overflow: hidden;
+    z-index: 2;
+  }
+
+
+  .group:hover .card-spotlight {
+    opacity: 1;
+  }
+
+  .card-reflection {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    border-radius: 1rem;
+
+    background: linear-gradient(
+      120deg,
+      transparent 30%,
+      rgba(255,255,255,0.15),
+      transparent 70%
+    );
+
+      transform: translateX(-120%);
+      transition: transform 0.6s ease;
+    }
+
+  .group:hover .card-reflection {
+    transform: translateX(120%);
+  }
+
+    .perspective {
+    perspective: 1000px;
+  }
+
+  @keyframes shimmer {
+    0% { transform: translateX(-100%); }
+    100% { transform: translateX(100%); }
+  }
+
+
+  /* SKILL BAR UPGRADE */
+  .skill-bar {
+    position: relative;
+    height: 10px;
+    border-radius: 9999px;
+    overflow: hidden;
+    background: rgba(255,255,255,0.08);
+  }
+
+  .skill-progress {
+    height: 100%;
+    border-radius: inherit;
+
+    background: linear-gradient(
+      90deg,
+      #22d3ee,
+      #60a5fa,
+      #a78bfa
+    );
+
+    box-shadow:
+      0 0 10px rgba(34,211,238,0.7),
+      0 0 20px rgba(96,165,250,0.5),
+      0 0 30px rgba(167,139,250,0.4);
+
+    position: relative;
+  }
+
+  .skill-progress::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+
+    background: linear-gradient(
+      120deg,
+      transparent,
+      rgba(255,255,255,0.6),
+      transparent
+    );
+
+    transform: translateX(-100%);
+    animation: shimmer 3s infinite linear;
+  }
+      
+}
