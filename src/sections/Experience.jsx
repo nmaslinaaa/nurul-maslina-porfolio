@@ -19,6 +19,7 @@ const experiences = [
 ];
 
 export const Experience = () => {
+
   const [activeIndex, setActiveIndex] = useState(0);
 
   const cardRef = useRef(null);
@@ -43,6 +44,7 @@ export const Experience = () => {
   };
 
   const handleMouseMove = (e) => {
+
     const rect = cardRef.current.getBoundingClientRect();
 
     const x = e.clientX - rect.left;
@@ -54,7 +56,6 @@ export const Experience = () => {
     const rotateX = -(y - centerY) / 25;
     const rotateY = (x - centerX) / 25;
 
-    // Spotlight position
     cardRef.current.style.setProperty("--x", `${x}px`);
     cardRef.current.style.setProperty("--y", `${y}px`);
 
@@ -83,6 +84,7 @@ export const Experience = () => {
 
         {/* HEADER */}
         <div className="max-w-3xl mb-16 ml-auto text-right">
+
           <span className="text-secondary-foreground text-sm font-medium tracking-wider uppercase">
             Career Journey
           </span>
@@ -97,10 +99,11 @@ export const Experience = () => {
           <p className="text-muted-foreground">
             A timeline of my internship and professional experience.
           </p>
+
         </div>
 
         {/* GRID */}
-        <div className="grid lg:grid-cols-2 gap-20 items-center">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-20 items-center">
 
           {/* IMAGE LEFT */}
           <div className="relative flex items-center justify-center perspective-[1000px] lg:order-1">
@@ -108,7 +111,7 @@ export const Experience = () => {
             {/* LEFT BUTTON */}
             <button
               onClick={prev}
-              className="absolute left-[-20px] z-20 p-3 rounded-xl 
+              className="absolute left-2 md:left-[-20px] z-20 p-3 rounded-xl 
               bg-black/40 backdrop-blur-md 
               border border-purple-500/30
               hover:border-purple-400
@@ -121,7 +124,7 @@ export const Experience = () => {
             <div className="flex flex-col items-center">
 
               {/* VIEWPORT */}
-              <div className="relative w-[520px] h-[450px] flex items-center justify-center">
+              <div className="relative w-full max-w-[520px] h-[360px] md:h-[450px] flex items-center justify-center">
 
                 {experiences.map((exp, index) => {
 
@@ -165,12 +168,12 @@ export const Experience = () => {
                       className="absolute transition-transform duration-500 ease-[cubic-bezier(0.22,1,0.36,1)]"
                       style={{
                         transform: `translate3d(${translateX}px,0,0) scale(${scale})`,
-                        opacity: isCenter ? 1 : 0.25,
+                        opacity: opacity,
                         zIndex: isCenter ? 10 : 5
                       }}
                     >
 
-                      <div className="relative group w-[480px]">
+                      <div className="relative group w-[90vw] max-w-[480px]">
 
                         <div className="card-spotlight"></div>
 
@@ -184,7 +187,7 @@ export const Experience = () => {
                         shadow-[0_0_40px_rgba(168,85,247,0.35)]
                         transition-all duration-500">
 
-                          <div className="w-full h-[320px] overflow-hidden rounded-lg relative">
+                          <div className="w-full h-[180px] md:h-[320px] overflow-hidden rounded-lg relative">
 
                             <img
                               ref={isCenter ? imageRef : null}
@@ -211,6 +214,7 @@ export const Experience = () => {
 
               {/* INDICATOR */}
               <div className="flex justify-center items-center gap-3 mt-6">
+
                 {experiences.map((_, index) => (
                   <button
                     key={index}
@@ -222,6 +226,7 @@ export const Experience = () => {
                     }`}
                   />
                 ))}
+
               </div>
 
             </div>
@@ -229,7 +234,7 @@ export const Experience = () => {
             {/* RIGHT BUTTON */}
             <button
               onClick={next}
-              className="absolute right-[-20px] z-20 p-3 rounded-xl 
+              className="absolute right-2 md:right-[-20px] z-20 p-3 rounded-xl 
               bg-black/40 backdrop-blur-md 
               border border-purple-500/30
               hover:border-purple-400
