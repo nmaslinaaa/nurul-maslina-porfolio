@@ -191,6 +191,15 @@
     }
   }
 
+  @keyframes marquee-fast {
+    from { transform: translateX(0); }
+    to { transform: translateX(-50%); }
+  }
+
+  .animate-marquee-fast {
+    animation: marquee-fast 5s linear infinite;
+  }
+
   .group:hover .animated-border-path {
     animation: animated-border 1.5s linear infinite;
   }
@@ -200,6 +209,36 @@
     backdrop-filter: blur(16px);
     box-shadow: 0 0 20px color-mix(in srgb, #c026ff 20%, transparent);
   }
+
+  .marquee-container {
+      overflow: hidden;
+      width: 100%;
+      position: relative;
+    }
+
+    .marquee-track {
+      display: flex;
+      width: max-content;
+      animation: smooth-marquee 18s linear infinite;
+    }
+
+    .marquee-item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 12px;
+      padding: 24px 40px;
+      flex-shrink: 0;
+    }
+
+    @keyframes smooth-marquee {
+      from {
+        transform: translateX(0);
+      }
+      to {
+        transform: translateX(-50%);
+      }
+    }
 
   .timeline-glow {
     box-shadow: 0 0 40px

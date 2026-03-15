@@ -19,7 +19,6 @@ const experiences = [
 ];
 
 export const Experience = () => {
-
   const [activeIndex, setActiveIndex] = useState(0);
 
   const cardRef = useRef(null);
@@ -44,7 +43,6 @@ export const Experience = () => {
   };
 
   const handleMouseMove = (e) => {
-
     const rect = cardRef.current.getBoundingClientRect();
 
     const x = e.clientX - rect.left;
@@ -105,10 +103,48 @@ export const Experience = () => {
         {/* GRID */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-20 items-center">
 
-          {/* IMAGE LEFT */}
-          <div className="relative flex items-center justify-center perspective-[1000px] lg:order-1">
+          {/* TIMELINE FIRST ON MOBILE */}
+          <div className="relative order-1 lg:order-2">
 
-            {/* LEFT BUTTON */}
+            <div className="absolute right-0 top-0 bottom-0 w-0.5 bg-linear-to-b from-purple-500 via-purple-400/40 to-transparent"></div>
+
+            <div className="space-y-12">
+
+              {experiences.map((exp, idx) => (
+                <div key={idx} className="relative pr-10 text-right">
+
+                  <div className="absolute right-1.5 top-2 w-3 h-3 bg-purple-500 rounded-full ring-4 ring-background">
+                    {exp.current && (
+                      <span className="absolute inset-0 rounded-full bg-purple-500 animate-ping opacity-70"></span>
+                    )}
+                  </div>
+
+                  <div className="glass p-4 rounded-xl border border-purple-500/30 hover:border-purple-400 transition duration-300">
+
+                    <h3 className="text-lg font-semibold text-white">
+                      {exp.title}
+                    </h3>
+
+                    <p className="text-purple-400 font-medium text-sm mt-1">
+                      {exp.subtitle}
+                    </p>
+
+                    <p className="text-xs text-gray-400 mt-2">
+                      {exp.period}
+                    </p>
+
+                  </div>
+
+                </div>
+              ))}
+
+            </div>
+
+          </div>
+
+          {/* IMAGE SECOND ON MOBILE */}
+          <div className="relative flex items-center justify-center perspective-[1000px] order-2 lg:order-1">
+
             <button
               onClick={prev}
               className="absolute left-2 md:left-[-20px] z-20 p-3 rounded-xl 
@@ -123,13 +159,11 @@ export const Experience = () => {
 
             <div className="flex flex-col items-center">
 
-              {/* VIEWPORT */}
               <div className="relative w-full max-w-[520px] h-[360px] md:h-[450px] flex items-center justify-center">
 
                 {experiences.map((exp, index) => {
 
                   const total = experiences.length;
-
                   let position = index - activeIndex;
 
                   if (position > total / 2) position -= total;
@@ -175,17 +209,9 @@ export const Experience = () => {
 
                       <div className="relative group w-[90vw] max-w-[480px]">
 
-                        <div className="card-spotlight"></div>
-
-                        <div className="absolute inset-0 pointer-events-none rounded-2xl
-                        bg-linear-to-tr from-transparent via-white/10 to-transparent
-                        opacity-0 group-hover:opacity-100
-                        transition duration-500" />
-
-                        <div className="relative glass p-6 rounded-2xl border border-purple-500/40 backdrop-blur-xl
+                        <div className="glass p-6 rounded-2xl border border-purple-500/40 backdrop-blur-xl
                         bg-linear-to-b from-purple-500/10 to-transparent
-                        shadow-[0_0_40px_rgba(168,85,247,0.35)]
-                        transition-all duration-500">
+                        shadow-[0_0_40px_rgba(168,85,247,0.35)]">
 
                           <div className="w-full h-[180px] md:h-[320px] overflow-hidden rounded-lg relative">
 
@@ -212,9 +238,7 @@ export const Experience = () => {
 
               </div>
 
-              {/* INDICATOR */}
               <div className="flex justify-center items-center gap-3 mt-6">
-
                 {experiences.map((_, index) => (
                   <button
                     key={index}
@@ -226,12 +250,10 @@ export const Experience = () => {
                     }`}
                   />
                 ))}
-
               </div>
 
             </div>
 
-            {/* RIGHT BUTTON */}
             <button
               onClick={next}
               className="absolute right-2 md:right-[-20px] z-20 p-3 rounded-xl 
@@ -243,45 +265,6 @@ export const Experience = () => {
             >
               <ChevronRight />
             </button>
-
-          </div>
-
-          {/* TIMELINE RIGHT */}
-          <div className="relative lg:order-2">
-
-            <div className="absolute right-0 top-0 bottom-0 w-0.5 bg-linear-to-b from-purple-500 via-purple-400/40 to-transparent"></div>
-
-            <div className="space-y-12">
-
-              {experiences.map((exp, idx) => (
-                <div key={idx} className="relative pr-10 text-right">
-
-                  <div className="absolute right-1.5 top-2 w-3 h-3 bg-purple-500 rounded-full ring-4 ring-background">
-                    {exp.current && (
-                      <span className="absolute inset-0 rounded-full bg-purple-500 animate-ping opacity-70"></span>
-                    )}
-                  </div>
-
-                  <div className="glass p-4 rounded-xl border border-purple-500/30 hover:border-purple-400 transition duration-300">
-
-                    <h3 className="text-lg font-semibold text-white">
-                      {exp.title}
-                    </h3>
-
-                    <p className="text-purple-400 font-medium text-sm mt-1">
-                      {exp.subtitle}
-                    </p>
-
-                    <p className="text-xs text-gray-400 mt-2">
-                      {exp.period}
-                    </p>
-
-                  </div>
-
-                </div>
-              ))}
-
-            </div>
 
           </div>
 
