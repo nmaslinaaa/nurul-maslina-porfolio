@@ -33,14 +33,14 @@ export const Hero = () => {
         <img
           src="/hero-bg.png"
           alt="Hero image"
-          className="w-full h-full object-cover opacity-40"
+          className="w-full h-full object-cover opacity-40 "
         />
         <div className="absolute inset-0 bg-linear-to-b from-background/20 via-background/80 to-background" />
       </div>
 
       {/* Floating dots */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        {[...Array(30)].map((_, i) => (
+        {[...Array(50)].map((_, i) => (
           <div
             key={i}
             className="absolute w-1.5 h-1.5 rounded-full opacity-60"
@@ -48,7 +48,7 @@ export const Hero = () => {
               backgroundColor: "#c084fc",
               left: `${Math.random() * 100}%`,
               top: `${Math.random() * 100}%`,
-              animation: `slow-drift ${15 + Math.random() * 20}s ease-in-out infinite`,
+              animation: `slow-drift ${15 + Math.random() * 10}s ease-in-out infinite`,
               animationDelay: `${Math.random() * 5}s`,
             }}
           />
