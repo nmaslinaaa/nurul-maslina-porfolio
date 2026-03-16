@@ -72,7 +72,7 @@ export const Hero = () => {
           <div className="space-y-8">
 
             <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full glass text-sm text-primary">
-              <span className="w-2 h-2 bg-primary rounded-full animate-pulse" />
+              <span className="w-2.5 h-2.5 bg-primary border-primary rounded-full animate-pulse " />
               Information Systems Engineering Graduate • Software Tester | Junior Developer
             </span>
 
@@ -139,7 +139,7 @@ export const Hero = () => {
               <div className="relative glass rounded-3xl p-2 glow-border">
 
                 <img
-                  src="/profile-photo-3.png"
+                  src="/profile-photo.png"
                   alt="Nurul Maslina"
                   className="w-full aspect-4/5 object-cover rounded-2xl"
                 />

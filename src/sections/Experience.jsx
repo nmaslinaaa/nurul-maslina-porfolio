@@ -106,7 +106,7 @@ export const Experience = () => {
           {/* TIMELINE FIRST ON MOBILE */}
           <div className="relative order-1 lg:order-2">
 
-            <div className="absolute right-0 top-0 bottom-0 w-0.5 bg-linear-to-b from-purple-500 via-purple-400/40 to-transparent"></div>
+            <div className="absolute right-[11px] top-0 bottom-0 w-0.5 bg-linear-to-b from-purple-500 via-purple-400/40 to-transparent"></div>
 
             <div className="space-y-12">
 
