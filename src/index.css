@@ -219,7 +219,7 @@
     .marquee-track {
       display: flex;
       width: max-content;
-      animation: smooth-marquee 18s linear infinite;
+      animation: smooth-marquee 20s linear infinite;
     }
 
     .marquee-item {
