@@ -66,7 +66,7 @@ export const Navbar = () => {
           <img
             src="/logo.png"
             alt="NMM Logo"
-            className="w-10 h-10 rounded-full object-cover border border-purple-500/40 shadow-[0_0_10px_rgba(168,85,247,0.6)]"
+            className="w-10 h-10 rounded-full object-contain  "
           />
 
           <span className="text-xl tracking-widest font-tech">
