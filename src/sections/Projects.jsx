@@ -88,7 +88,6 @@ export const Projects = () => {
                   <a
                     href={project.link}
                     target="_blank"
-                    rel="noopener noreferrer"
                     className="p-3 rounded-full glass hover:bg-primary hover:text-primary-foreground transition-all"
                   >
                     <ArrowUpRight className="w-5 h-5" />
@@ -115,7 +114,7 @@ export const Projects = () => {
                    group-hover:-translate-y-1 transition-all"
                   />
                 </div>
-                <p className="text-muted-foreground text-sm">
+                <p className="text-muted-foreground text-sm text-justify">
                   {project.description}
                 </p>
                 <div className="flex flex-wrap gap-2">
@@ -128,6 +127,22 @@ export const Projects = () => {
                     </span>
                   ))}
                 </div>
+                <a
+                  href={project.link}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="
+                    md:hidden inline-flex items-center gap-2 mt-3 px-4 py-2 
+                    rounded-full text-sm font-medium
+                    bg-surface text-primary
+                    border border-primary/80 hover:border-primary
+                    transition-all duration-200
+                    active:scale-95
+                  "
+                >
+                  Preview Project
+                  <ArrowUpRight className="w-4 h-4" />
+                </a>
               </div>
             </div>
           ))}

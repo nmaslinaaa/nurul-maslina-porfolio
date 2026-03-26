@@ -159,13 +159,13 @@ export const InternshipFeedback = () => {
                 w-12 h-12 rounded-full bg-primary
                 flex items-center justify-center"
               >
-                <Quote className="w-6 h-6 text-primary-foreground" />
+                <Quote className="w-6 h-6 text-primary-foreground " />
               </div>
 
               {/* Quote */}
               <blockquote
                 className="text-xl md:text-2xl font-medium
-                leading-relaxed mb-8 pt-4"
+                leading-relaxed mb-8 pt-4 text-justify"
               >
                 "{internshipFeedback[activeIdx].quote}"
               </blockquote>

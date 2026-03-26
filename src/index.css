@@ -46,7 +46,42 @@
 
   .font-tech {
   font-family: "Space Grotesk", sans-serif;
-}
+  }
+
+    /* 🌌 Custom Scrollbar */
+  ::-webkit-scrollbar {
+    width: 8px;
+  }
+
+  ::-webkit-scrollbar-track {
+     background: var(--color-secondary);
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: linear-gradient(
+      180deg,
+      #c084fc,
+      #a855f7,
+      #7c3aed
+    );
+    border-radius: 999px;
+    border: 2px solid var(--color-secondary);
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(
+      180deg,
+      #d8b4fe,
+      #c084fc,
+      #9333ea
+    );
+  }
+
+  /* Firefox support */
+  html {
+    scrollbar-width: thin;
+    scrollbar-color: #a855f7 var(--color-background);
+  }
 }
 
 @layer components {

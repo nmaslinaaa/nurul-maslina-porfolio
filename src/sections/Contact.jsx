@@ -15,7 +15,7 @@ const contactInfo = [
     icon: Mail,
     label: "Email",
     value: "nurulmaslinamusa@gmail.com",
-    href: "mailto:nurulmaslinamusa@gmail.com",
+    href: "https://mail.google.com/mail/?view=cm&fs=1&to=nurulmaslinamusa@gmail.com",
   },
   {
     icon: Phone,
@@ -147,6 +147,8 @@ export const Contact = () => {
                   <a
                     key={i}
                     href={item.href}
+                    target="_blank" 
+                    rel="noopener noreferrer" 
                     className="flex items-start gap-4 p-4 rounded-xl hover:bg-surface transition-colors group"
                   >
 
@@ -158,7 +160,7 @@ export const Contact = () => {
                       <div className="text-sm text-muted-foreground">
                         {item.label}
                       </div>
-                      <div className="font-medium break-all">
+                      <div className="font-medium break-words">
                         {item.value}
                       </div>
                     </div>
@@ -179,7 +181,7 @@ export const Contact = () => {
                 <span className="font-medium">Currently Available</span>
               </div>
 
-              <p className="text-muted-foreground text-sm leading-relaxed">
+              <p className="text-muted-foreground text-sm leading-relaxed text-justify">
                 I'm currently open to new opportunities and exciting projects.
                 Whether you need a full-time Software Tester, Junior Developer
                 or collaboration for a project, feel free to reach out.
