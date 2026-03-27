@@ -7,7 +7,7 @@ const projects = [
       "A web-based inventory management system developed for a local restaurant to manage stock records, item updates, and inventory tracking more efficiently.",
     image: "/projects/project1.png",
     tags: ["Java", "JSP", "MariaDB", "NetBeans"],
-    link: "https://inventory-management-system-chndlgirl.onrender.com",
+    link: "https://penang-chendul-ims.onrender.com",
     // github: "#",
   },
   {
@@ -25,7 +25,7 @@ const projects = [
       "A web-based Student Management Information System developed for a tuition centre to manage student records, classes, and administrative operations digitally.",
     image: "/projects/project3.png",
     tags: ["Laravel", "PHP", "MySQL", "JavaScript"],
-    link: "https://smis-perintis-didik-production.up.railway.app",
+    link: "https://smis-perintis-didik.onrender.com",
     // github: "#",
   },
   {
